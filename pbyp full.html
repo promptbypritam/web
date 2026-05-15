@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PromptBYPritam</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:#fff;
+}
+
+header{
+background:#111;
+padding:18px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #222;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#ffd700;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+margin-left:18px;
+font-size:14px;
+}
+
+.hero{
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(135deg,#111,#1a1a1a);
+}
+
+.hero h1{
+font-size:45px;
+margin-bottom:15px;
+}
+
+.hero p{
+color:#aaa;
+font-size:18px;
+max-width:700px;
+margin:auto;
+line-height:1.7;
+}
+
+.container{
+padding:30px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:#181818;
+border-radius:20px;
+overflow:hidden;
+border:1px solid #222;
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card-content h2{
+font-size:24px;
+margin-bottom:10px;
+color:#ffd700;
+}
+
+.card-content p{
+color:#bbb;
+font-size:14px;
+line-height:1.6;
+}
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:9999;
+}
+
+.popup-box{
+background:#181818;
+border-radius:20px;
+overflow:hidden;
+max-width:700px;
+width:100%;
+border:1px solid #333;
+animation:popup .3s ease;
+}
+
+@keyframes popup{
+from{
+transform:scale(.7);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.popup-box img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.popup-content{
+padding:20px;
+}
+
+.popup-content h2{
+color:#ffd700;
+margin-bottom:15px;
+font-size:28px;
+}
+
+.prompt-text{
+background:#111;
+padding:18px;
+border-radius:15px;
+line-height:1.8;
+color:#ddd;
+font-size:15px;
+white-space:pre-line;
+max-height:350px;
+overflow:auto;
+margin-bottom:20px;
+border:1px solid #222;
+}
+
+.button-box{
+display:flex;
+gap:10px;
+}
+
+.copy-btn,
+.close-btn{
+flex:1;
+padding:14px;
+border:none;
+border-radius:12px;
+font-weight:bold;
+cursor:pointer;
+font-size:15px;
+}
+
+.copy-btn{
+background:#ffd700;
+color:#000;
+}
+
+.close-btn{
+background:#333;
+color:#fff;
+}
+
+footer{
+background:#111;
+text-align:center;
+padding:20px;
+margin-top:20px;
+color:#888;
+}
+
+@media(max-width:600px){
+
+.hero h1{
+font-size:32px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+header{
+flex-direction:column;
+gap:10px;
+}
+
+.popup-box{
+max-height:95vh;
+overflow:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+PromptBYPritam
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Prompts</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Premium AI Prompt Website</h1>
+
+<p>
+Explore premium AI prompts for image generation, websites, logos and more.
+Click any prompt card to open full popup prompt with copy button.
+</p>
+
+</section>
+
+<section class="container">
+
+<div class="card" onclick="openPopup(
+'AI Image Prompt',
+'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
+'Create a futuristic cyberpunk city with neon lights, cinematic atmosphere, ultra realistic details, glowing buildings, flying vehicles, rainy streets, cinematic reflections, advanced technology, detailed background, vibrant lighting effects, dramatic composition, science fiction mood, realistic textures, high quality rendering, 8K ultra HD, highly detailed environment, futuristic architecture, immersive atmosphere.'
+)">
+
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h2>AI Image Prompt</h2>
+<p>Click to open full AI image prompt.</p>
+</div>
+
+</div>
+
+<div class="card" onclick="openPopup(
+'Website Prompt',
+'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop',
+'Create a modern responsive website using HTML CSS and JavaScript with dark premium UI, smooth animations, mobile responsive layout, modern cards, glowing effects and futuristic style.'
+)">
+
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h2>Website Prompt</h2>
+<p>Click to open full website prompt.</p>
+</div>
+
+</div>
+
+<div class="card" onclick="openPopup(
+'Logo Prompt',
+'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop',
+'Design a luxury gold and black logo with elegant typography, premium branding style, modern icon, realistic metallic gold effects and dark luxury background.'
+)">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+<h2>Logo Prompt</h2>
+<p>Click to open full logo prompt.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+<img id="popupImage" src="">
+
+<div class="popup-content">
+
+<h2 id="popupTitle"></h2>
+
+<div class="prompt-text" id="popupText"></div>
+
+<div class="button-box">
+
+<button class="copy-btn" onclick="copyPrompt()">
+Copy
+</button>
+
+<button class="close-btn" onclick="closePopup()">
+Close
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 PromptBYPritam • All Rights Reserved
+</footer>
+
+<script>
+
+function openPopup(title,image,text){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("popupTitle").innerText=title;
+
+document.getElementById("popupText").innerText=text;
+
+document.getElementById("popupImage").src=image;
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+function copyPrompt(){
+
+let text=document.getElementById("popupText").innerText;
+
+if(navigator.clipboard){
+
+navigator.clipboard.writeText(text).then(function(){
+
+alert("Prompt Copied!");
+
+});
+
+}else{
+
+let textarea=document.createElement("textarea");
+
+textarea.value=text;
+
+document.body.appendChild(textarea);
+
+textarea.select();
+
+document.execCommand("copy");
+
+document.body.removeChild(textarea);
+
+alert("Prompt Copied!");
+
+}
+
+}
+
+window.onclick=function(event){
+
+let popup=document.getElementById("popup");
+
+if(event.target==popup){
+
+popup.style.display="none";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
